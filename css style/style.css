@@ -1,0 +1,722 @@
+/* 
+1- common styles
+2- general styles
+3-sections
+ 3.0-Header section
+ 3.1-Home section
+ 3.2-About section
+ 3.3-Portfolio section 
+ 3.4-service section 
+ 3.5-Prices section 
+ 3.6-Team section 
+ 3.7-Blog section 
+ 3.8-Contact section
+ 3.9-Footer section
+
+*/
+
+
+
+/*1- common styles */ 
+ /* 
+  - overlay
+  - opacity hover 
+  - section header 
+  - section padding
+  - hover effect 1 ( left to right )
+  - hover effect 2 ( top to bottom )
+  - container 
+  */
+  .overlay {
+    position: absolute;
+    width: 100%; height: 100%; top: 0; left: 0;
+    background-color: rgba(0,0,0,.7);} /* دية بتعوض اننا نعمل اوباستي */ 
+
+    button{
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .hover-opacity{
+        transition: opacity 0.9s; /* ده عشان يحول الاوبستي خلال الوقت ده */ /* css 3 */ 
+    }
+    .hover-opacity:hover{
+        opacity: 0.6;
+    }
+.section-header{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.section-header .section-title {
+    font-size: 35px;
+    text-transform: capitalize;
+}
+.section-header .line{
+    display: block;
+    height: 5px; width: 70px; 
+    background: rgb(52, 52, 201);
+    margin: 0 auto 70px auto;
+}
+
+  /* 2- general css styles */ 
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;  /* css 3 */  /* معناها متخليش ال بادينج متزودش علي السايز وتاخد من الويدز الموجود  */ 
+    }
+
+    .container{
+        width: 80%;
+        margin: auto; /* عشان نوسطن عنصر  block  */ 
+    }
+
+  body{ font-family: 'Signika', sans-serif;  }
+
+  a {text-decoration:none;}
+
+  .pd-y{
+      padding: 155px 0;
+  } 
+  .ltr-effect{
+      position: relative;
+  }
+  .ltr-effect::after{
+position: absolute;
+content: "";
+width: 0%; /* top:0; left:0; bottom:0; right:0;  دية بتعوض اننا نعمل عرض وطول  */
+height:100%;
+top: 0;
+left: 0;
+background-color: black;
+transition: width 0.5s;
+z-index: -1; /* عشان تكون ورا الكلام  */ 
+  }
+  .ltr-effect:hover:after {
+      width: 100%;
+  }
+    /* 3- Section sstyles */ 
+    
+    /* 3.0-Header Section */ 
+  .header{
+       background: rgba(0,0,0,.7);
+       position: fixed;
+       width: 100%;    /* بيخلي العنصر ينكمش كدة ويخلي يتحول من ديسبلاي بلوك الي اينلاين بلوك فعشان كدة بنستخد العرض 100%*/
+       z-index: 10; /* عشان نخلية يرجع يركب */ 
+     }
+  /* .header-content {overflow: hidden;} الطريقة دية بديلة لل clear  وبيحل مشكلة float  بس مشكلتها لو عامل دروب داون مش هيزهر */
+  .header .logo {width: 35%;  float: left;}
+  .header .logo img{width: 20%; margin: 15px;}
+  .header .nav {width: 65%;  float: left; list-style: none; text-align: right;}
+  .header .nav > li {display: inline-block; width: 85px; text-align: center;}
+  .header .nav > li > a{
+      color: #fff;
+       padding: 30px 14px;   /* هنا بنوسع مساحة ال a عشان نعرف نتكة ع اللينك ف اي مكان  */
+       display: block;
+       font-size: 15px;
+    }
+    .header .nav > li > a::after{
+        content: "";
+        display: block;
+        width: 0;
+        height: 3px;
+        margin-top: 2px;
+        background-color: rgb(70, 80, 211);
+        transition: width 0.4s;
+    }
+    .header .nav > li > a:hover::after{
+        width: 100%;
+    }
+    .clear{clear: both;}
+
+    .dropdown{position: relative;}
+    
+
+    .dropdown-menu{
+        position: absolute;
+        list-style: none;
+         width: 150px;
+         background-color: rgb(86, 86, 207);
+         text-align: center;
+         left: -35%; top: 70%;
+         opacity: 0;
+         visibility: hidden;
+         transition: opacity 0.5s , visibility 0.5s ;
+         }
+         .dropdown-menu a{
+            color: white;
+            display: block;
+            padding: 10px; }
+     
+     .dropdown:hover .dropdown-menu {
+          opacity: 1;
+           visibility:visible; }   
+
+    /*3.1-Home section*/ 
+    .home{
+        height: 100vh;
+        background-image: url(../images/background/background1.webp);
+        background-size: cover; /* بتخلي الصورة علي قد المقاس بتاعك بالظبط  */  /* css 3 */ 
+        position: relative;
+        background-attachment: fixed;
+    }
+     .home-content{
+         width: 65%;
+         /* hero image */ 
+         position: absolute;
+         top: 50%; left: 50%;
+         transform: translate(-50%,-50%);
+         text-align: center;
+     }
+    .home .title{
+        color: whitesmoke;
+        font-size: 4.5rem;
+        text-transform:uppercase;
+
+    }
+    .home-dec{
+        color: whitesmoke;
+        margin: 20px 0;
+        letter-spacing: 3px;
+        line-height: 1.5;
+    }
+    .home .btn{
+        min-width: 160px; padding: 15px 0;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer; /* دية خاصية بتخليك تتحكم في شكل الماوس لما يجي ع العنصر دة  */ 
+        font-size: 18px;
+        margin-top: 20px;
+    }
+    .home .btn-start {
+        margin-right: 10px;
+        background-color: whitesmoke;
+    }
+    .home .btn-more {
+        background-color: rgb(38, 146, 209);
+        color: whitesmoke;
+    }
+  
+   
+
+
+
+    /*3.2-About section*/ 
+  
+  .about-content{
+      overflow: hidden;
+  }
+  .about-item{
+      width: 30%;
+      float: left;
+      text-align: center;
+      border: solid 5px whitesmoke;
+      padding: 50px 30px;
+  }
+  .about-item.mg{
+      margin: 0 5%;
+  }
+  .about-item .icon{
+      color: rgb(32, 49, 201);
+      margin-bottom: 15px;
+  }
+.about-item-title{
+text-transform: capitalize;
+margin-bottom: 15px;
+transition: color 0.5s;
+}
+.about-item-des{
+    line-height: 1.2;
+    margin-bottom: 10px;
+    color: rgb(77, 74, 74);
+}
+.about-item-link{
+    font-size: large;
+    text-transform: capitalize;
+}
+ .about-item:hover .about-item-title{
+color: aliceblue;} 
+
+    /*3.3-Portfolio section*/ 
+    .portfolio{
+        background-color: rgb(190, 187, 187);
+    }
+    .portfolio-content{
+        overflow: hidden;
+    }
+    .portfolio-item{
+        width: 30%;
+        float: left;
+        margin-bottom: 60px;
+        position: relative;
+        padding: 20px;
+    }
+    .portfolio-item .layer-content{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color:rgba(0,0,0,.7);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.8s;
+    }
+    .portfolio-item:hover .layer-content{
+        opacity: 1;
+        visibility: visible;
+    }
+    .portfolio-item img{
+        width: 100%;
+    }
+    .portfolio-item.mg{
+        margin: 0 5%;
+    }
+    .layer-content .layer-info{
+        position: absolute;
+        left: 50%; top: 50%;
+        transform: translate(-50%,-50%);
+        width: 70%;
+        text-align: center;
+    }
+    .layer-content-title{
+        font-size: 20px;
+        color: whitesmoke;
+        margin-bottom: 10px;
+        position: relative;
+        top: 10px;
+        transition: top 0.5s,opacity 0.5s;
+transition-delay: 0.5s;
+  opacity: 0; visibility: hidden;  }
+    .layer-content a {
+        display: inline-block;
+        width: 40px; height: 40px;
+        background-color: rgb(35, 88, 185);
+        position: relative;
+        top: 10px;
+        transition: top 0.5s,opacity 0.5s;
+        transition-delay: 0.8s;
+opacity: 0; visibility: hidden;
+    }
+    .layer-content a i{
+        line-height: 40px;
+        color: cornsilk;
+    }
+    .layer-content .category{
+        color: rgb(34, 78, 209);
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 10px;
+        position: relative;
+        top: 10px;
+        transition: top 0.5s,opacity 0.5s;
+        font-size: x-large;
+        transition-delay: 0s; /* ده معناه انة مش هيستني*/ 
+  opacity: 0;  visibility: hidden;  }
+    .portfolio-item:hover .layer-content-title,
+    .portfolio-item:hover .layer-content a , 
+    .portfolio-item:hover .layer-content .category{
+        top: 0;
+opacity: 1;
+visibility: visible;
+    }
+
+    /*3.4-offer section*/
+
+    .offer-content{
+        overflow: hidden;
+    } 
+    .offer-item {
+        width: 30%;
+        float: left;
+        text-align: center;
+        margin-bottom: 30px;
+        border: solid 4px whitesmoke;
+        padding: 20px 15px 30px 70px;
+        position: relative;
+    }
+    .offer-item.mg{
+        margin: 0 5%;
+    }
+    .offer-item .icon{
+        position: absolute;
+        left: 15px;
+        top: 30px;
+         font-size: 40px;
+         color: rgb(11, 70, 180);
+    }
+    .offer-item-title{
+        text-transform: capitalize;
+        margin-bottom: 15px;
+        transition: color 0.5s;
+    }
+    .offer-item-des {
+        text-transform: capitalize;
+        margin-bottom: 15px;
+        line-height: 1.6;
+        color: rgb(59, 58, 59);
+
+    }
+    .offer-item:hover .offer-item-title{
+        color: whitesmoke;
+    }
+   
+
+    /*3.5-service section*/ 
+    .service{
+        background-color: rgb(226, 221, 221);
+    }
+    .service-item{
+  width: 50%;
+ float: left;
+    }
+    .service-item .section-header{
+        text-align: left;
+    }
+    .service-item .section-header .line{
+        margin: 0 0 70px 0;
+    }
+    .service-item-dec{
+        padding-right: 20px;
+        color: rgb(121, 117, 117);
+        line-height: 1.5;
+        font-size: 20px;
+        margin-bottom: 20px;
+
+    }
+    .service-list{
+        list-style: none;
+        margin-bottom: 5px;
+
+    }
+    .service-list li i{
+        border: solid 1px rgb(60, 71, 168);
+        color: rgb(60, 71, 168);
+        padding: 10px 7px;
+        border-radius: 50%;
+    }
+    .service-list li {
+        margin-bottom: 9px;
+        color: rgb(63, 63, 63);
+    }
+    .service-item-img img{
+        width: 100%;
+    }
+.service-bolts{
+    list-style: none;
+    text-align: center;
+
+}
+.service-bolts li {
+    width: 10px; height: 10px;
+    display: inline-block;
+    background-color: whitesmoke;
+    margin: 10px 5px;
+    border-radius: 50%;
+}
+.service-bolts li.active{
+    background-color: turquoise;
+}
+.service-bolts li:hover{
+    background-color: turquoise;
+}
+    /*3.6-numbers section*/ 
+    .number{
+        position: relative;
+        background-image: url(../images/background/background2.webp);
+        height: 200px;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+     .number-items{
+         overflow: hidden;
+         padding: 120px 0;
+     }
+     .number-item{
+         width: 25%;
+         float: left;
+         text-align: center;
+     }
+     .number-item .icon{
+         color: aqua;
+         margin-bottom: 20px;
+     }
+     .number-item-title{
+         font-weight: bold;
+         font-size: 30px;
+         color: whitesmoke;
+         margin-bottom: 5px;
+     }
+     .number-item-text{
+         color: whitesmoke;
+         text-transform: capitalize;
+     }
+    /*3.7-Prices section*/
+    .prices-plans{
+        overflow: hidden;
+    }
+    .prices-item{
+        width: 30%;
+        float: left;
+        padding: 50px 15px ; 
+        border: solid whitesmoke 3px;
+        text-align: center;
+    }
+    .prices-item.mg{
+        margin: 0 5%;
+    }
+    .prices-item-text{
+        text-transform: uppercase;
+        font-size: 17px;
+        color: #999;
+        transition: color 0.5s;
+    }
+    .pricint-item-permonth{
+        width: 130px; 
+        height: 130px;
+        padding: 30px 0;
+        border-radius: 50%;
+        border: solid blue 3px;
+        margin: 20px auto;
+        transition: color 0.5s;
+    }
+    .pricint-item-permonth .dollars{
+        font-size: 40px;
+    }
+    .pricint-item-permonth .month{
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .pricint-list{
+        line-height: 1.5;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: rgb(105, 102, 102);
+    }
+    .pricint-item-purchase{
+        background: none;
+        border: 2px solid rgb(76, 76, 226);
+        display: block;
+        width: 150px;
+        padding: 10px;
+        margin: 15px auto 0 auto;
+        color: rgb(76, 76, 226);
+        text-transform: capitalize;
+        font-size: 17px;
+    }
+    .ttb-effect{
+        position: relative;
+    }
+    .ttb-effect::after{
+  position: absolute;
+  content: "";
+  height: 0%; /* top:0; left:0; bottom:0; right:0;  دية بتعوض اننا نعمل عرض وطول  */
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: black;
+  transition: height 0.5s;
+  z-index: -1; /* عشان تكون ورا الكلام  */ 
+    }
+    .ttb-effect:hover:after {
+        height: 100%;
+    }
+    .prices-item:hover .pricint-item-permonth {
+        color: wheat;
+    }
+    .prices-item:hover .prices-item-text{
+        color: rgb(52, 52, 173);
+    }
+
+
+    
+    /*3.8-testimonail section*/ 
+
+    .testimonail{
+        position: relative;
+        background-image: url(../images/background/background3.webp);
+        background-attachment: fixed;
+        height: 400px; 
+
+    }
+    .testimonail-content{
+        overflow: hidden;
+        padding: 120px 0;
+        width: 80%;
+        margin: auto;
+    }
+    .testimonail-item{
+        width: 50%;
+        float: left;
+        color: whitesmoke;
+    }
+    .testimonail-content .testimonail-toplayer{
+        padding: 10px 2px 40px 100px;
+        position: relative;
+    }
+    .testimonail-content .testimonail-toplayer img{
+        border-radius: 50%;
+        position: absolute;
+        left: 10;
+        top: 10px;
+    }
+    .testimonail-toplayer span{
+        color: rgb(32, 32, 138);
+        font-size: 18px;
+        text-transform: uppercase;
+    }
+    .testimonail-toplayer h3{
+        margin: 8px 0;
+    }
+    .testimonail-content .testimonail-dec{
+        line-height: 1.5;
+ }
+
+   
+    /*3.9-team section*/
+    .team-content{
+        overflow: hidden;
+    }
+    .team-item{
+        width: 30%;
+        float: left;
+        background-color: whitesmoke;
+        padding: 40px 10px;
+        text-align: center;
+    }
+    .team-item .team-img{
+        width: 90%;
+        margin: auto;
+        position: relative;
+    }
+    .team-overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,.5);
+        opacity: 0;
+        visibility: hidden;
+    }
+    .team-overlay a {
+        display: block;
+        width: 40px; height: 40px;
+        background-color: rgb(90, 90, 192);
+        color: whitesmoke;
+        margin-left: auto ;
+    }
+    .team-overlay a i {
+        line-height: 40px;
+    }
+    .team-item .team-img img{
+        width: 100%;
+    }
+    .team-item .team-info-title{
+        color: #222;
+        margin: 10px 0;
+        transition: color 0.6s ;
+    }
+    .team-item .team-info-text{
+        color: #999;
+        text-transform: uppercase;
+        font-size: 14px;
+        transition: color 0.6s ;
+    }
+    .team-item:hover .team-overlay{
+        opacity: 1;
+        visibility: visible;
+    }
+    .team-item.ttb-effect{
+        z-index: 1;
+    }
+    .team-item:hover .team-info-title{
+        color: whitesmoke;
+    }
+    .team-item:hover .team-info-text{
+        color: blue;
+    }
+    .team-item.mg{
+        margin: 0 5% ;
+    }
+
+    /* blog section */ 
+    .blog{
+        background-color: whitesmoke;
+    }
+    .blog-content{
+        overflow: hidden;
+        
+    }
+    .blog-item{
+        width: 30%;
+        float: left;
+        background-color: whitesmoke;
+
+    }
+    .blog-item-img img{
+        width: 100%;
+    }
+    .blog-list{
+        list-style: none;
+        margin: 10px 0;
+    }
+    .blog-list li {
+        display: inline-block;
+        margin: 0 5px;
+    }
+    .blog-info{
+        padding: 20px;
+    }
+    .blog-list li i{
+        color: rgb(58, 58, 141);
+    }
+    .blog-item.mg{
+        margin: 0 5%;
+    }
+
+    /*footer section */ 
+    .footer{
+        background-color: rgb(15, 14, 14);
+        text-align: center;
+        padding: 60px 0;
+    }
+    .footer-links{
+        list-style: none;
+        margin: 20px 0;
+    }
+    .footer-links li{
+        display: inline-block;
+    }
+    .footer-links li a{
+        display: block;
+        width: 50px;
+        height: 50px;
+        background-color: rgb(74, 74, 219);
+        color: white;
+        margin: 0 6px;
+        border-radius: 30%;
+    }
+    .footer-links li a i{
+        line-height: 50px;
+    }
+    .footer .copyright{
+        color: #999;
+        font-size: 15px;
+        text-transform: uppercase;
+        
+    }
+
+
+
+    /* Tips 
+    لو لقيت كلام او محتوي علي صورة يبقي الصورة دية محطوطة بال سي اس اس باك جراوند ايمدج
+    لو صورة مش عليها حاجة حطها بال اتش تي ام ال 
+    يفضل ندي العناصر كلها كلاس
+    يفضل يكون كل الحروف اسمال في الاتش تي ام ل وانتا خليها كابتل في سي اس اس
+   فكرة الترانزيشن انة بيشاغل علي كل العناصر ف حل المشكلة تحدد الاوباستي 
+   div.assf بيخلي الي بعد النقطة كلاس
+   عشان تعلم وتقف في كذا مكان بتدوس altوتكتب كلة مع بعضة 
+   div class="pd-y ممكن نعملة قبل وبعد العنصر الرئيسي عشان نعمل نفس البادينج
+   يفضل نحط الصورة في ديف لو عايزين نظبط ابعادها عشان متبكسلش معانا 
+
+
+
+
